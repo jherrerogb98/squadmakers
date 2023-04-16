@@ -17,8 +17,20 @@ python manage.py runserver
 
 # API endpoints
 
+La API está ejecutandose en local, por lo que la url será 
+http://127.0.0.1:8000/api/
+
+
+Se puede acceder a las funcionalidades GET y POST del Rest framework con esta dirección:
+http://127.0.0.1:8000/api/joke
+
+
+Para acceder a un elemento en particular utilizamos un path parameter especificando el id. Este endpoint acepta GET, PUT, y DELETE:
+http://127.0.0.1:8000/api/joke/1
+
+
 ## get_random
-Se have un get request al siguiente endpoint y devuelve un chiste aleatorio:
+Se hace un get request al siguiente endpoint y devuelve un chiste aleatorio:
 
 http://127.0.0.1:8000/api/get_random/
 ```
