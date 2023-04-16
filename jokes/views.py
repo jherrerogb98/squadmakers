@@ -59,7 +59,12 @@ def get_mcm(request):
 @csrf_exempt
 def get_plusone(request):
 
-    number = request.GET.getlist('number')
+    number = request.GET.get('number')
+    if number is None:
+        data = {}
+        data['error'] = "Please, select a number"
+        return JsonResponse(data, status=status.HTTP_400_BAD_REQUEST)
+
     if not number.isdigit():
         data = {}
         data['error'] = "Invalid format"

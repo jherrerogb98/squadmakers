@@ -46,6 +46,12 @@ http://127.0.0.1:8000/api/get_random/dad
 ```
 
 
+## get_plusone
+
+Envía un numero al siguiente endpoint con un query parameter y devuelve el mismo número más uno:
+http://127.0.0.1:8000/api/get_plusone/?number=3
+
+
 ## get_mcm
 
 Envía una lista de números al endpoint con un query parameter y devuelve el mínimo común múltiplo:
