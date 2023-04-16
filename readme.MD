@@ -65,7 +65,11 @@ http://127.0.0.1:8000/api/get_mcm/?numbers=2&numbers=4&numbers=6
 
 
 # Que repositorio usar:
-Para esta API usaremos PostgreSQL. Para almacenar datos, realizar consultas de manera rápida siempre opto por una base de datos relacional. SQL server también podría ser una opción. Si quisieramos una base de datos no relacional, pensando en su escalabilidad y su capacidad para manejar datos no estructurados, elegiría mongodb.
+
+
+La API por defecto está usando sqlite para ejecutarse localmente. Pero la aproximación teórica sería la siguiente:
+
+Para esta API usaría PostgreSQL. Para almacenar datos, realizar consultas de manera rápida siempre opto por una base de datos relacional. SQL server también podría ser una opción. Si quisieramos una base de datos no relacional, pensando en su escalabilidad y su capacidad para manejar datos no estructurados, elegiría mongodb.
 
 Para integrar las bases de datos en la API, con django es muy sencillo:
 
