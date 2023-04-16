@@ -18,8 +18,32 @@ python manage.py runserver
 # API endpoints
 
 ## get_random
+Se have un get request al siguiente endpoint y devuelve un chiste aleatorio:
 
-## get_numbers
+http://127.0.0.1:8000/api/get_random/
+```
+{"text": "Chuck Norris always hits the G-spot with mathematical precision.", "type": "chuck"}
+
+```
+
+Es posible añadir un path parameter al endpoint para especificar el tipo de chiste que se quiere recibir:
+http://127.0.0.1:8000/api/get_random/dad
+
+```
+{"text": "Recent survey revealed 6 out of 7 dwarf's aren't happy.", "type": "dad"}
+```
+
+
+## get_mcm
+
+Envía una lista de números al endpoint con un query parameter y devuelve el mínimo común múltiplo:
+
+http://127.0.0.1:8000/api/get_mcm/?numbers=2&numbers=4&numbers=6
+
+```
+{"list": [2, 4, 6], "mcm": 12}
+
+```
 
 
 # Que repositorio usar:
