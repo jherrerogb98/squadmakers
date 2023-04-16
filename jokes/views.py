@@ -56,6 +56,22 @@ def get_mcm(request):
         data['mcm'] = lcm
         return JsonResponse(data, status=status.HTTP_200_OK)
        
+@csrf_exempt
+def get_plusone(request):
+
+    number = request.GET.getlist('number')
+    if not number.isdigit():
+        data = {}
+        data['error'] = "Invalid format"
+        return JsonResponse(data, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        number = int(number)+1
+        
+        data = {}
+        data['number'] = number
+        data['plus_one'] = number
+        return JsonResponse(data, status=status.HTTP_200_OK)
+       
 
 
 class JokeView(APIView):
