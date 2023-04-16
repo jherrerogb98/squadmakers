@@ -15,6 +15,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+## API endpoints
+
+# get_random
+
+# get_numbers
 
 
 ## Que repositorio usar:
