@@ -1,16 +1,20 @@
 ## Instalación
 
 Primero instalamos los requirements:
-````
+```
+
 pip install requirements.txt
 ```
 
+
 Aplicamos las migraciones y ejecutamos el servidor, que ya estaría listo para funcionar:
 ```
+
 python manage.py migrate
 
 python manage.py runserver
 ```
+
 
 
 ## Que repositorio usar:
@@ -21,6 +25,7 @@ Para integrar las bases de datos en la API, con django es muy sencillo:
 SQL:
 
 ```
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -33,12 +38,14 @@ DATABASES = {
 }
 ```
 
+
 NoSQL:
 
 Django está pensado para ser usado con una base de datos relacional. Si queremos conectar una base de datos no relacional, la estructura sería algo más compleja, y tendríamos que usar una librería llamada djongo.
 
 
 ```
+
   DATABASES = {
        'default': {
            'ENGINE': 'djongo',
@@ -48,8 +55,12 @@ Django está pensado para ser usado con una base de datos relacional. Si queremo
 
 ```
 
+
+
 Ejemplo de un modelo:
+
 ```
+
 from djongo import models
 
 class Entry(models.Model):
