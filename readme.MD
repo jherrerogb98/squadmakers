@@ -4,9 +4,9 @@ Para integrar las bases de datos en la API, con django es muy sencillo:
 
 SQL
 
-'''
+```
 a
-'''
+```
 
 NoSQL
 
