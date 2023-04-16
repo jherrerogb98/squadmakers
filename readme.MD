@@ -1,4 +1,4 @@
-## Instalación
+# Instalación
 
 Primero instalamos los requirements:
 ```
@@ -15,14 +15,14 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## API endpoints
+# API endpoints
 
-# get_random
+## get_random
 
-# get_numbers
+## get_numbers
 
 
-## Que repositorio usar:
+# Que repositorio usar:
 Para esta API usaremos PostgreSQL. Para almacenar datos, realizar consultas de manera rápida siempre opto por una base de datos relacional. SQL server también podría ser una opción. Si quisieramos una base de datos no relacional, pensando en su escalabilidad y su capacidad para manejar datos no estructurados, elegiría mongodb.
 
 Para integrar las bases de datos en la API, con django es muy sencillo:
