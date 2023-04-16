@@ -1,17 +1,68 @@
+## Instalación
+
+Primero instalamos los requirements:
+````
+pip install requirements.txt
+```
+
+Aplicamos las migraciones y ejecutamos el servidor, que ya estaría listo para funcionar:
+```
+python manage.py migrate
+
+python manage.py runserver
+```
+
+
+## Que repositorio usar:
 Para esta API usaremos PostgreSQL. Para almacenar datos, realizar consultas de manera rápida siempre opto por una base de datos relacional. SQL server también podría ser una opción. Si quisieramos una base de datos no relacional, pensando en su escalabilidad y su capacidad para manejar datos no estructurados, elegiría mongodb.
 
 Para integrar las bases de datos en la API, con django es muy sencillo:
 
-SQL
+SQL:
 
 ```
-a
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'name_db',
+        'HOST': 'localhost', #or any IP address
+        'PORT': 'port_db',
+        'USER': 'user_db',
+        'PASSWORD': 'pass_db',
+    }
+}
 ```
 
-NoSQL
+NoSQL:
 
-PostgreSQL o MariaDB: Si los datos que se van a almacenar tienen una estructura bien definida y necesitas realizar consultas complejas, entonces una base de datos relacional como PostgreSQL o MariaDB podría ser una buena opción. Ambos repositorios son de código abierto y ofrecen una gran cantidad de funciones avanzadas y una buena escalabilidad.
+Django está pensado para ser usado con una base de datos relacional. Si queremos conectar una base de datos no relacional, la estructura sería algo más compleja, y tendríamos que usar una librería llamada djongo.
 
-MongoDB: Si los datos no tienen una estructura bien definida y necesitas flexibilidad en la estructuración de los datos, una base de datos NoSQL como MongoDB podría ser una buena opción. Además, MongoDB es conocida por su escalabilidad y rendimiento.
 
-Elasticsearch: Si necesitas realizar búsquedas y análisis complejos en tus datos, un motor de búsqueda y análisis como Elasticsearch podría ser una buena opción. Elasticsearch es conocido por su rapidez y capacidad de procesamiento de grandes volúmenes de datos.
+```
+  DATABASES = {
+       'default': {
+           'ENGINE': 'djongo',
+           'NAME': 'your-db-name',
+       }
+   }
+
+```
+
+Ejemplo de un modelo:
+```
+from djongo import models
+
+class Entry(models.Model):
+    blog = models.ArrayField(
+        model_container=Blog
+    )    
+    headline = models.CharField(max_length=255)    
+
+e = Entry()
+e.blog = [
+    {'name': 'Djongo'}, {'name': 'Django'}, {'name': 'MongoDB'}
+]
+e.headline = 'Headline example'
+e.save()
+
+```
